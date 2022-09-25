@@ -1,12 +1,14 @@
-import './components/input-boxs/input-box.component.jsx'
 import './App.css';
-import InputBox from './components/input-boxs/input-box.component.jsx';
+import { Route,Routes } from 'react-router-dom';
+import Home from './routes/home/home.component';
+import ShowTodoList from './routes/show-todo-list/show-todo-list.component'
 
-function App() {
+const App = ()=> {
   return (
-    <div >
-     <InputBox></InputBox>
-    </div>
+    <Routes>
+      <Route path='/' element={Home}/>
+      <Route path='show-todo-list' element={ShowTodoList}/>
+    </Routes>
   );
 }
 
