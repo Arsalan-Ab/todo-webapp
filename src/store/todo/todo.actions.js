@@ -22,5 +22,5 @@ const addUserTodo = (title, todos) => {
 
 export const addTodo = (title, todos) => {
     const newTodos = addUserTodo(title,todos)
-    return createAction(TODO_ACTION_TYPES.ADD_TODO, todos)
+    return createAction(TODO_ACTION_TYPES.ADD_TODO, newTodos)
 }
