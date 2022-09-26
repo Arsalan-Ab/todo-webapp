@@ -6,8 +6,8 @@ import ShowTodoList from './routes/show-todo-list/show-todo-list.component'
 const App = ()=> {
   return (
     <Routes>
-      <Route path='/' element={Home}/>
-      <Route path='show-todo-list' element={ShowTodoList}/>
+      <Route path='/' element={<Home/>}/>
+      <Route path='show-todo-list' element={<ShowTodoList/>}/>
     </Routes>
   );
 }

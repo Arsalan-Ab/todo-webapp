@@ -1,33 +1,29 @@
 import { useContext } from "react"
 import { todoContext } from "../../contexts/todo-context"
-import TodoList from "../todo-list/todo-list.component"
+import { Link } from "react-router-dom"
 
 const InputBox = () => {
 
-    const { setTodo, todos } = useContext(todoContext)
+    const { setTodo, addTodo } = useContext(todoContext)
 
     const handleSubmit = (event) => {
         event.preventDefault()
         const { name, value } = event.target[0]
 
-        const id = Math.floor(Math.random() * 100)
-
-        const todo = {
-            title: value,
-            id: id
-        }
-        setTodo([...todos, todo])
+        addTodo(value.trim().toLowerCase())
     }
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="addToDo">Add Todo:</label>
-                <input id="addToDo" name="add"></input>
+                <input required id="addToDo" name="add"></input>
                 <input type='submit' value='Add'></input>
             </form>
 
-            <TodoList todos={todos}></TodoList>
+            <Link to='show-todo-list'>
+                <button>show todos list</button>
+            </Link>
         </div>
     )
 }
