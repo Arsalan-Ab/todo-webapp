@@ -1,16 +1,17 @@
-import { useContext } from "react"
-import { todoContext } from "../../contexts/todo-context"
 import { Link } from "react-router-dom"
+import { useSelector, useDispatch } from 'react-redux'
+import { selectTodosList } from "../../store/todo/todo.selector"
+import { addTodo } from "../../store/todo/todo.actions"
 
 const InputBox = () => {
-
-    const { setTodo, addTodo } = useContext(todoContext)
+    const todos = useSelector(selectTodosList)
+    const dispatch = useDispatch()
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        const { name, value } = event.target[0]
+        const { value } = event.target[0]
 
-        addTodo(value.trim().toLowerCase())
+        dispatch(addTodo(value.trim().toLowerCase(), todos))
     }
 
     return (
