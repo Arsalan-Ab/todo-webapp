@@ -7,7 +7,7 @@ const ShowTodoList = () => {
     const todos = useSelector(selectTodosList)
 
     return (
-        <div>
+        <div className="container-lg d-inline bg-light">
             {todos.length !== 0 &&
                 <TodoList todos={todos} />
             }

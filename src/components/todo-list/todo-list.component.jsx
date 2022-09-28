@@ -1,14 +1,15 @@
+import { Fragment } from "react"
 import TodoItem from "../todo-item/todo-item.component"
 
 const TodoList = ({todos})=> {
     return(
-        <div>
+        <Fragment>
             {
                 todos.map((todo)=> (
                     <TodoItem key={todo.id} todo={todo}/>
                 ))
             }
-        </div>
+        </Fragment>
     )
 }
 

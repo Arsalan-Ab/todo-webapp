@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { selectTodosList } from "../../store/todo/todo.selector"
 import { addTodo } from "../../store/todo/todo.actions"
 
+
 const InputBox = () => {
     const todos = useSelector(selectTodosList)
     const dispatch = useDispatch()
@@ -15,15 +16,19 @@ const InputBox = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="addToDo">Add Todo:</label>
-                <input required id="addToDo" name="add"></input>
-                <input type='submit' value='Add'></input>
-            </form>
+        <div className="d-flex flex-column justify-content-center">
+            <div className="">
+                <form onSubmit={handleSubmit} className="border mb-5 bg-light d-flex flex-column justify-content-center">
+                    <div className="mb-3">
+                        <label htmlFor="addToDo" className="form-label align-self-center">Add Todo</label>
+                        <input className="form-control" required id="addToDo" name="add" placeholder="Enter Todo" ></input>
+                    </div>
+                    <button className="btn btn-primary mb-1 align-self-center" type='submit' value='Add'>Submit</button>
+                </form>
+            </div>
 
-            <Link to='show-todo-list'>
-                <button>show todos list</button>
+            <Link to='show-todo-list' className="align-self-center btn btn-danger">
+                show todos list
             </Link>
         </div>
     )
