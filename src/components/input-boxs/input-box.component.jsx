@@ -16,16 +16,14 @@ const InputBox = () => {
     }
 
     return (
-        <div className="d-flex flex-column justify-content-center">
-            <div className="">
-                <form onSubmit={handleSubmit} className="border mb-5 bg-light d-flex flex-column justify-content-center">
+        <div className="d-flex flex-column">
+                <form onSubmit={handleSubmit} className="border mb-5 bg-light d-flex flex-column">
                     <div className="mb-3">
-                        <label htmlFor="addToDo" className="form-label align-self-center">Add Todo</label>
+                        <label htmlFor="addToDo" className="form-label">Add Todo</label>
                         <input className="form-control" required id="addToDo" name="add" placeholder="Enter Todo" ></input>
                     </div>
                     <button className="btn btn-primary mb-1 align-self-center" type='submit' value='Add'>Submit</button>
                 </form>
-            </div>
 
             <Link to='show-todo-list' className="align-self-center btn btn-danger">
                 show todos list
