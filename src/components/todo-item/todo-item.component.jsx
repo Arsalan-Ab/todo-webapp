@@ -1,15 +1,26 @@
+import { selectTodosList } from "../../store/todo/todo.selector"
+import { useSelector, useDispatch } from 'react-redux'
+import { deleteTodo } from '../../store/todo/todo.actions'
+
 const TodoItem = ({ todo }) => {
-    const { title } = todo
+    const { title, id } = todo
+    const todos = useSelector(selectTodosList)
+    const dispatch = useDispatch()
+
+    const handleDeleteTodo = () => {
+        dispatch(deleteTodo(id, todos))
+    }
+
     return (
         <div className="container-lg bg-light">
             <div className="row justify-content-between border">
                 <div className="col-11">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input col-5" />
-                        <label class="form-check-label" for="check1">{title}</label>
+                    <div className="form-check">
+                        <input type="checkbox" className="form-check-input col-5" />
+                        <label className="form-check-label">{title}</label>
                     </div>
                 </div>
-                <button type="button" className="btn-close btn-close-danger justify-self-end"></button>
+                <button type="button" onClick={handleDeleteTodo} className="btn-close"></button>
             </div>
         </div>
     )

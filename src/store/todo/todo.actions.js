@@ -20,7 +20,18 @@ const addUserTodo = (title, todos) => {
     return [...todos]
 }
 
+const deleteUserTodo = (id, todos) => {
+    return todos.filter((todo) => {
+        return todo.id !== id
+    })
+}
+
 export const addTodo = (title, todos) => {
-    const newTodos = addUserTodo(title,todos)
+    const newTodos = addUserTodo(title, todos)
     return createAction(TODO_ACTION_TYPES.ADD_TODO, newTodos)
+}
+
+export const deleteTodo = (id, todos) => {
+    const newTodos = deleteUserTodo(id, todos)
+    return createAction(TODO_ACTION_TYPES.DELETE_TODO, newTodos)
 }
