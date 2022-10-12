@@ -8,7 +8,7 @@ const ShowTodoList = () => {
 
     return (
         <div className="container-fluid-lg h-100 d-flex flex-column align-items-center">
-            <h1>Todo List</h1>
+            <h1 className="mb-4">Todo List</h1>
             {todos.length !== 0 &&
                 <TodoList todos={todos} />
             }

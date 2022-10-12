@@ -17,7 +17,7 @@ const InputBox = () => {
 
     return (
         <div className="d-flex flex-column">
-                <form onSubmit={handleSubmit} className="border mb-5 bg-light d-flex flex-column">
+                <form onSubmit={handleSubmit} className="border mb-5 bg-light d-flex flex-column p-2">
                     <div className="mb-3">
                         <label htmlFor="addToDo" className="form-label">Add Todo</label>
                         <input className="form-control" required id="addToDo" name="add" placeholder="Enter Todo" ></input>
