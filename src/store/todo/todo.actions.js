@@ -10,7 +10,8 @@ const addUserTodo = (title, todos) => {
 
         const newTodo = {
             title: title,
-            id: id
+            id: id,
+            checked: false
         }
 
         return [...todos, newTodo]
@@ -26,6 +27,15 @@ const deleteUserTodo = (id, todos) => {
     })
 }
 
+const updateCheck = (title, todos) => {
+    const exsistingTodo = todos.find((todo) => {
+        return todo.title === title
+    })
+
+    exsistingTodo.checked = !exsistingTodo.checked
+    return [...todos]
+}
+
 export const addTodo = (title, todos) => {
     const newTodos = addUserTodo(title, todos)
     return createAction(TODO_ACTION_TYPES.ADD_TODO, newTodos)
@@ -34,4 +44,9 @@ export const addTodo = (title, todos) => {
 export const deleteTodo = (id, todos) => {
     const newTodos = deleteUserTodo(id, todos)
     return createAction(TODO_ACTION_TYPES.DELETE_TODO, newTodos)
+}
+
+export const checkedStatus = (title, todos) => {
+    const newTodos = updateCheck(title, todos)
+    return createAction(TODO_ACTION_TYPES.UPDATE_CHECK_TODO, newTodos)
 }

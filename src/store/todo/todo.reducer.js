@@ -18,6 +18,11 @@ const todoReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 todos: payload
             }
+        case TODO_ACTION_TYPES.UPDATE_CHECK_TODO:
+            return {
+                ...state,
+                todos: payload
+            }
         default:
             return state
     }
